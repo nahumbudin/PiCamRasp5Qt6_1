@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Gallery</title>
+    <style>
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 20px;
+            padding: 20px;
+            background: rgba(50, 50, 50, 1)
+        }
+        image-item {
+            cursor: pointer;
+            position: relative
+        }
+        .image-item img {
+            width: 100%;
+            height: auto;
+        }
+        .image-name {
+            text-align: center;
+            margin-top: 5px;
+            font-wight: bold;
+            font-size: 18px;
+            color: white;
+        }
+        .full-screen-image {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.9);
+            text-align: center;
+        }
+        .full-screen-image img {
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 20px;
+        }
+        .close-btn {
+            color: #fff;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+        }
+        .download-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .folder-icon {
+            width: auto;
+            height: 100px;
+            background-image: url('/static/icons8-folder-64.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            position: center
+        }
+
+    </style>
+</head>
+<body>
+    <div class="image-grid">
+        {% for image in images %}
+            {% if image.type == 'image' %}
+                <div class="image-item" onclick="displayFullScreenImage('{{  url_for('get_image', filename=image.name) }}')">
+                    <img src="{{ url_for('get_image', filename=image.name) }}" alt="Image">
+                    <div class="image-name">{{ image.name }}</div>
+                </div>
+            {% endif %}
+
+            {% if image.type == 'directory' %}
+                <div class="image-item"  onclick="openDirectory('{{ image.path }}')">
+                    <div class="folder-icon" data-src="/home/pi/Workspace/Python/Local/PyCharm/PiCamera/PyQt5/PiCamQt5_3"></div>
+                    <div class="image-name">{{ image.name }}</div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="/?page={{ page - 1 }}">Previous</a>
+        {% endif %}
+
+        {% if page < total_pages %}
+            <a href="/?page={{ page + 1 }}">Next</a>
+        {% endif %}
+    </div>
+
+    <div class="full-screen-image" id="full-screen-image" onclick="closeFullScreenImage()">
+        <span class="close-btn">&times</span>
+        <img id="expanded-img">
+        <a href="#" id="download-link" class="download-btn" download>DownLoad Image</a>
+    </div>
+
+    <script>
+        function displayFullScreenImage(imagePath) {
+            var fullScreenImg = document.getElementById('full-screen-image');
+            console.log('Clicked image path', imagePath);
+            var expandedImg = document.getElementById('expanded-img');
+            var downloadLink = document.getElementById('download-link');
+
+            expandedImg.src = imagePath;
+            downloadLink.href = imagePath;
+
+            fullScreenImg.style.display = 'block';
+        }
+
+        function closeFullScreenImage() {
+            var fullScreenImg = document.getElementById('full-screen-image');
+            fullScreenImg.style.display = 'none';
+        }
+
+        function openDirectory(path) {
+            console.log('Clicked dir', path);
+            fetch('/get-directory?path=' + path)
+            .then(response => response.text())
+            .then(data => {
+                // Display fetched content in the console
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error fetching directory:', error);
+            });
+        }
+    </script>
+</body>
+</html>
