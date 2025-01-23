@@ -4,15 +4,47 @@
 
 ![Rasp5Cam1_bottom_left](https://github.com/user-attachments/assets/7338e19e-77e0-468c-b422-8a092aa5b8b8)
 
-![Screenshot_Exposure](https://github.com/user-attachments/assets/e9003333-b625-487d-ae64-889420c5e820)
+# Screenshots
 
-![Screenshot_Picture](https://github.com/user-attachments/assets/f7ba44d6-ce90-4575-bcca-6104da8c105b)
+## Main Menu - Params
 
-![Screenshot_Timers](https://github.com/user-attachments/assets/f1da4ca2-5371-49d8-9bc2-fdea6273dcab)
+### Exposure
 
-![Screenshot_Display](https://github.com/user-attachments/assets/9e17c0d1-db1b-4a5b-939c-e347a56a2ab4)
+![Exposure](https://github.com/user-attachments/assets/293803cf-0ca2-473d-bfad-892b1d4d0d27)
 
-![Screenshot_Flash](https://github.com/user-attachments/assets/863286b7-e404-449f-854c-900ed5e47bec)
+### Picture
 
-![Screenshot_System](https://github.com/user-attachments/assets/028f9069-0ff2-422a-9beb-94e56db16c8b)
+![Picture](https://github.com/user-attachments/assets/8a84f6df-749f-4bba-8c41-833453ce5348)
+
+### Timers
+
+![Timers](https://github.com/user-attachments/assets/f7ff883e-5a7a-43c7-a4f1-f9172d88e3ae)
+
+### Display
+
+![Display](https://github.com/user-attachments/assets/38bb0cd6-df35-46b2-a930-3724b7c41559)
+
+### Flash
+
+![Flash](https://github.com/user-attachments/assets/f294ccc0-5dda-42e8-b757-5a32c0366449)
+
+### System
+
+![System](https://github.com/user-attachments/assets/761c499b-55be-45c5-8223-6c7557588534)
+
+## Submenus
+
+### Images
+
+![Images](https://github.com/user-attachments/assets/eb228105-1643-4825-9008-55d4eb8114f1)
+
+### Interfaces
+
+![Interfaces](https://github.com/user-attachments/assets/ccdea8cb-751b-4320-9dda-282c43b3e300)
+
+
+### Hardware
+
+![Hardware](https://github.com/user-attachments/assets/57ee4b1b-6a91-433e-90c7-f84d87cf53e3)
+
 
